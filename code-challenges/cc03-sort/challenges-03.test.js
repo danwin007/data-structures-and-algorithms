@@ -20,6 +20,8 @@ const sortBackwards = (arr) => {
   return arr;
 };
 
+
+
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
 
@@ -32,18 +34,24 @@ For example, ['Alphabet', 'Zebra', 'alphabet', 'carrot'] is correctly sorted.
 
 const alphabetize = (arr) => {
   // Solution code here...
-  arr.sort((a, b) => {
-    if (a > b) {
-      return -1;
-    } else if (b > a) {
+  arr.sort( (a,b) => {
+    if(a>b) {
       return 1;
-    } else {
-      return 0;
     }
-  });
+    if (b>a) {
+      return -1;
+    }
+    return 0;
+  })
   return arr;
-
 };
+
+//diff way to do above, all on one line
+// return arr.sort( (a,b) => a > b ? 1 : (a < b ? -1 : 0));
+// ? means "if this is true, return the following"
+// : signifies "else"
+// arr.sort(); 
+// above is faster way due to sort base rules
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
@@ -53,6 +61,7 @@ Write a function named sortByLength that takes in an array of strings and return
 
 const sortByLength = (arr) => {
   // Solution code here...
+  return arr.sort( (a,b) => a.length - b.length)
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -65,6 +74,7 @@ For example, ['Alphabet', 'alphabet', 'carrot', 'Zebra'] is correctly sorted, an
 
 const alphabetizeBetter = (arr) => {
   // Solution code here...
+  return arr.sort( (a,b) => a.toLowerCase() > b.toLowerCase() ? 1 : (a.toLowerCase() < b.toLowerCase() ? -1 : 0));
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -82,6 +92,7 @@ Here is an example of the input:
 
 const sortByPrice = (arr) => {
   // Solution code here...
+  
 };
 
 /* ------------------------------------------------------------------------------------------------
