@@ -15,7 +15,12 @@ For example, if the input is 'Welcome', the output will be:
 
 const howMuchPencil = (str) => {
   let result = [];
+  let strL = str.length;
   // Solution code here...
+  for ( let i = 0; i < strL+1; i++) {
+    result.push(str);
+    str = str.slice(1);
+  }
   return result;
 };
 
@@ -29,6 +34,8 @@ For example, wordsToCharList('gregor') returns ['g','r','e','g','o','r'].
 
 const wordsToCharList = (arr) => {
   // Solution code here...
+  let wordArr = arr.split('');
+  return wordArr;
 };
 
 
@@ -75,7 +82,11 @@ const gruffaloCrumble = {
 
 const listFoods = (recipe) => {
   let result = [];
-  // Solution code here...
+  let ingOb = recipe.ingredients;
+  ingOb.forEach( list => {
+    let item = list.split(' ').slice(2).join(' ');
+    result.push(item);
+  })
   return result;
 };
 
@@ -90,6 +101,11 @@ You may also use other string or array methods.
 const splitFoods = (recipe) => {
   let result = [];
   // Solution code here...
+  let ingOb = recipe.ingredients;
+  ingOb.forEach( list => {
+    let item = list.split(' ').slice(2).join(' ');
+    result.push(item);
+  })
   return result;
 };
 
@@ -106,6 +122,11 @@ Return a new array containing just the verbs. For example, ['Mix until evenly di
 const stepActions = (recipe) => {
   let result = [];
   // Solution code here...
+  let ingOb = recipe.steps;
+  ingOb.forEach( list => {
+    let item = list.split(' ').splice(0,1).join(' ');
+    result.push(item);
+  })
   return result;
 };
 
@@ -123,7 +144,13 @@ For example:
 ------------------------------------------------------------------------------------------------ */
 
 const removeEvenValues = (arr) => {
-  // Solution code here...
+  for (var i = 0; i < arr.length; i++) {
+    // here
+    while (arr[i] % 2 === 0) {
+      arr.splice(i, 1);
+    }
+  }
+  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
