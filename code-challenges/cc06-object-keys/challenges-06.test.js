@@ -14,6 +14,7 @@ const courseInfo = { name: 'Code 301', duration: { dayTrack: '4 weeks', eveningT
 
 const getCourseKeys = (obj) => {
   // Solution code here...
+  return Object.keys(obj);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -71,6 +72,9 @@ let characters = [
 const getHouses = (arr) => {
   let houses = [];
   // Solution code here...
+  Object.values(arr).forEach( obj => {
+    houses.push(obj.house);
+  });
   return houses;
 };
 
@@ -86,8 +90,19 @@ hasChildrenValues(characters, 'Cersei') will return true
 hasChildrenValues(characters, 'Sansa') will return false
 ------------------------------------------------------------------------------------------------ */
 
-const hasChildrenValues = (arr, character) => {
+const hasChildrenValues = (arr, characters) => {
   // Solution code here...
+  Object.values(arr).forEach ( obj => {
+    if (obj.name === characters){
+      if (obj.spouse) {
+        console.log('true');
+        return true;
+      } else {
+        console.log('false');
+        return false;
+      }
+    }
+  });
 
 };
 
