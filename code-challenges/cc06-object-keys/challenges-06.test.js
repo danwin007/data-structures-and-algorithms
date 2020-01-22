@@ -96,7 +96,7 @@ const hasChildrenValues = (arr, characters) => {
     if (arr[i].name === characters) {
       return Object.values(arr[i])[2];
     }
-  };
+  }
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -111,9 +111,9 @@ const hasChildrenEntries = (arr, character) => {
   // Solution code here...
   for (let i = 0; i < arr.length; i++) {
     if (arr[i].name === character) {
-      return Object.entries(arr[i])[2][1];
+      return Object.entries(arr[i])[2][1].length>0;
     }
-  };
+  }
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -124,6 +124,13 @@ Write a function named totalCharacters that takes in an array and returns the nu
 
 const totalCharacters = (arr) => {
   // Solution code here...
+  let charHold = [];
+  Object.values(arr).forEach ( obj => {
+    charHold.push(obj.name);
+    if (obj.spouse) charHold.push(obj.spouse);
+    if (obj.children.length>0) charHold.push(...obj.children);
+  })
+  return charHold.length;
 };
 
 /* ------------------------------------------------------------------------------------------------
