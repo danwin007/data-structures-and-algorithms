@@ -10,6 +10,8 @@ For example, oddValues([1,2,3]) returns [1,3].
 
 const oddValues = (arr) => {
   // Solution code here...
+  let arr1 = arr.filter( n => (n % 2 ));
+  return arr1;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -25,6 +27,8 @@ For example, filterStringsWithVowels('gregor','hound','xyz') returns ['gregor', 
 
 const filterStringsWithVowels = (arr) => {
   // Solution code here...
+  let vowelArr = arr.filter( n => (/.[aeiou]/im).test(n));
+  return vowelArr;
 };
 
 
