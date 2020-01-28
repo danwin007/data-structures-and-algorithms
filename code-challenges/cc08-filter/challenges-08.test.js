@@ -27,8 +27,8 @@ For example, filterStringsWithVowels('gregor','hound','xyz') returns ['gregor', 
 
 const filterStringsWithVowels = (arr) => {
   // Solution code here...
-  let vowelArr = arr.filter( n => (/.[aeiou]/im).test(n));
-  return vowelArr;
+  const vowelRegex = /[aeiou]/;
+  return arr.filter(str => vowelRegex.test(str));
 };
 
 
@@ -42,6 +42,7 @@ For example, notInFirstArray([1,2,3], [1,2,3,4]) returns [4].
 
 const notInFirstArray = (forbiddenValues, arr) => {
   // Solution code here...
+  return arr.filter(element => !forbiddenValues.includes(element));
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -85,6 +86,7 @@ const snorlaxData = {
 
 const getBaseStatGreaterThan = (arr, minBaseStat) => {
   // Solution code here...
+  return arr.filter(element => element.baseStat > minBaseStat);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -97,6 +99,7 @@ For example, getStatName(snorlaxData.stats, 50) will return ['special-defense', 
 
 const getStatName = (arr, minBaseStat) => {
   // Solution code here...
+  return arr.filter(element => element.baseStat > minBaseStat).map(element => element.stat.name);
 };
 
 /* ------------------------------------------------------------------------------------------------
