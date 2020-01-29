@@ -170,7 +170,15 @@ removeLastCharacters('Gregor', 9) returns ''
 
 const removeLastCharacters = (str, numberOfCharacters) => {
   // Solution code here...
+  if (str.length > numberOfCharacters) {
+    return str.slice(0,str.length - numberOfCharacters);
+  } else if (numberOfCharacters < 0) {
+    return str;
+  }
+  return '';
 };
+
+// help from tenaw and clayton
 
 
 /* ------------------------------------------------------------------------------------------------
@@ -196,7 +204,12 @@ For example, removeVowels('gregor') returns 'grgr'.
 
 const removeVowels = (str) => {
   // Solution code here...
+  let split = str.split('').filter(letter => {
+    return !/[aeiou]/gm.test(letter);
+  })
+  return split.join('');
 };
+// help from clayton and tenaw
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 10 - Stretch Goal
