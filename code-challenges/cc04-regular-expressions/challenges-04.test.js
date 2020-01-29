@@ -25,10 +25,12 @@ Write a function named isCapitalized that takes in a string. This function shoul
 Return an array containing all the matches.
 ------------------------------------------------------------------------------------------------ */
 
-const isCapitalized = (str) => {
+const isCapitalized = (str) => {`-`
   // Solution code here...
-  return (/\w*^[A-Z]\w*/gm).test(str);
+  let getCapital = (/[A-Z]\w+/gm);
+  return str.match(getCapital) || [];
 };
+//got help from henok
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
@@ -38,8 +40,15 @@ Write a function named citiesAtoJ that takes in an array of city names and uses 
 
 const citiesAtoJ = (arr) => {
   // Solution code here...
-  return (/\w^[a-kA-K]/gm).test(arr);
+  const newArr = [];
+  const regex = /^[A-J]\w+/gm;
+  arr.forEach(str => {
+    regex.test(str) ? newArr.push(str.match(regex)[0]) : null;
+
+  });
+  return newArr;
 };
+//got help from madison
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
@@ -55,14 +64,10 @@ Do not use the vertical bar (pipe) in your pattern.
 
 const matchMonth = (input) => {
   // Solution code here...
-  return (/October|Oct|october|oct/gm).test(input);
+  let regex = /^[oO]ct(ober)?$/;
+  return regex.test(input);
 };
-
-// if (/October|Oct|october|oct/gm).test(input) {
-//   return true;
-// } else {
-//   return false;
-// }
+//got help from sian
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5
@@ -76,8 +81,10 @@ The expected output of "Hello, and have a wonderful day!" is ["and ", "have ", "
 
 const noPunctuation = str => {
   // Solution code here...
-  return (/\w*[a-z]\s/gm).test(str);
+  let regex = /\w+\s+/gm;
+  return str.match(regex);
 };
+//help from sian
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 6
@@ -93,8 +100,10 @@ For example, 'Welcome to Code 301!' will return 'W_lc_m_ t_ C_d_ 301!'.
 
 let hangman = (str) => {
   // Solution code here...
+  return str.replace(/[aeiou]/gim, '_');
   
 };
+//help from clayton
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 7 - Stretch Goal
