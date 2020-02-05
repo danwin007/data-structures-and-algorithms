@@ -13,8 +13,17 @@ For example, count(5, [[1, 3, 5, 7, 9], [5, 5, 5], [1, 2, 3]]) returns 4.
 
 const count = (target, input) => {
   // Solution code here...
-
+  let arr1 = [...input[0],...input[1],...input[2]];
+  let counter = 0;
+  for (let i = 0; i < arr1.length; i++) {
+    if (target === arr1[i]) {
+      counter++;
+    }
+  }
+  return counter;
 };
+
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
