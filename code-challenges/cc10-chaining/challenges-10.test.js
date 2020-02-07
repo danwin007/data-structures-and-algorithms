@@ -13,16 +13,16 @@ For example, count(5, [[1, 3, 5, 7, 9], [5, 5, 5], [1, 2, 3]]) returns 4.
 
 const count = (target, input) => {
   // Solution code here...
-  let arr1 = [...input[0],...input[1],...input[2]];
+  let arr = [];
+  input.forEach(el => Array.isArray(el) ? arr.push(...el) : arr.push(el));
   let counter = 0;
-  for (let i = 0; i < arr1.length; i++) {
-    if (target === arr1[i]) {
+  for (let i = 0; i < arr.length; i++) {
+    if (target === arr[i]) {
       counter++;
     }
   }
   return counter;
 };
-
 
 
 /* ------------------------------------------------------------------------------------------------
@@ -60,6 +60,15 @@ For example, [ [0,2,5,4], [2,4,10], [] ] should return [ [1, 32], [1024], [] ].
 
 const divisibleByFiveTwoToThePower = (input) => {
   // Solution code here...
+  console.log(input);
+  input.forEach(el => {
+    for ( let i = 0; i < el.length; i++) {
+      while ( el[i] % 5 || el[i] === NaN){
+        el.splice(i,1);
+      }
+    }
+  })
+  return input.map(arr => arr.map(el => Math.pow(2, el)));
 };
 
 /* ------------------------------------------------------------------------------------------------
