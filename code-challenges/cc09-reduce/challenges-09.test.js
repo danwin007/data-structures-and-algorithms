@@ -10,9 +10,7 @@ Note: You may not use the array's built-in length property.
 
 const countNumberOfElements = (arr) => {
   // Solution code here...
-  return arr.reduce((accumulator, currentVal) => {
-    return accumulator + 1;
-  }, 0);
+  return arr.reduce(acc => acc + 1, 0);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -89,7 +87,11 @@ Note: You must use reduce for this challenge. You may not use the built-in .reve
 
 const reversedString = (str) => {
   // Solution code here...
-  
+  let arr = str.split('');
+  let reverseStr = arr.reduce( (str, currentLetter) => {
+    return currentLetter + str;
+  }, '');
+  return reverseStr;
 };
 
 
@@ -144,6 +146,13 @@ const characters = [
 
 const countNumberOfChildren = (arr) => {
   // Solution code here...
+  return arr.reduce( (spawn, arr) => {
+    if (arr.children) {
+      return spawn + arr.children.length;
+    } else {
+      return spawn;
+    }
+  }, 0);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -156,6 +165,7 @@ Hint: The accumulator should begin as { count: 0, sum: 0 }
 
 const calculateAverage = (arr) => {
   // Solution code here...
+  return arr.reduce( (acc , val) => (acc + val))/arr.length;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -177,6 +187,12 @@ const isPrime = (value) => {
 
 const countPrimeNumbers = (arr) => {
   // Solution code here...
+  return arr.reduce( (acc, val) => {
+    if (isPrime(val)) {
+      return ++acc;
+    }
+    return acc;
+  }, 0);
 };
 
 /* ------------------------------------------------------------------------------------------------
