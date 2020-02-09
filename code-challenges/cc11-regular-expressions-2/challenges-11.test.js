@@ -31,7 +31,10 @@ Note: if you ever need to validate an email using a regex in practice, the Inter
 ------------------------------------------------------------------------------------------------ */
 
 const validateEmail = (email) => {
+  return (/^([a-zA-Z0-9_\-.]*[a-zA-Z0-9])@[a-zA-Z0-9-]+\.(org|com|net)$/gm).test(email);
   // Solution code here...
+  //not full points because it catches x.y.z, allows for multiple strings ending in period, where rules want exactly 1 string ending in period max (x.y)
+  //cant figure out that detail yet
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -56,6 +59,7 @@ Return either true or false.
 ------------------------------------------------------------------------------------------------ */
 
 const validatePhoneNumber = (phoneNumber) => {
+  return (/^((\([0-9]{3}\))|[0-9]{3})[\s-]?[\0-9]{3}[\s-]?[0-9]{4}$/gm).test(phoneNumber);
   // Solution code here...
 };
 
