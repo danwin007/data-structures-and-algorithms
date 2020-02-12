@@ -37,14 +37,16 @@ For example, [[1, 2, 3, 4, 5], [6, 7, 2, 4, 5, 7], [9, 2, 3, 6,]] returns 66.
 
 const totalSum = (input) => {
   // Solution code here...
-  let arr = [...input[0], ...input[1], ...input[2]];
-  let totes = 0;
-  for (let i = 0; i <arr.length; i++) {
-    totes += arr[i];
+  let arrSum = 0;
+  for (let i = 0; i < input.length; i++){
+    for (let j = 0; j <input[i].length; j++){
+      arrSum += input[i][j];
+    }
   }
-  console.log(totes);
-  return totes;
+  return arrSum;
 };
+
+// help from krystal
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
@@ -60,16 +62,18 @@ For example, [ [0,2,5,4], [2,4,10], [] ] should return [ [1, 32], [1024], [] ].
 
 const divisibleByFiveTwoToThePower = (input) => {
   // Solution code here...
-  console.log(input);
-  input.forEach(el => {
-    for ( let i = 0; i < el.length; i++) {
-      while ( el[i] % 5 || el[i] === NaN){
-        el.splice(i,1);
-      }
-    }
-  })
-  return input.map(arr => arr.map(el => Math.pow(2, el)));
+  return input.map(el => {
+    return el.filter(num => {
+      return num % 5 === 0 && typeof(num) === 'number';
+    });
+  }).map(arr => {
+    return arr.map(el => {
+      return Math.pow(2, el);
+    });
+  });
 };
+
+// help from group review
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
@@ -135,8 +139,13 @@ let starWarsData = [{
 
 let findMaleAndFemale = (data) => {
   // Solution code here...
+  return data.filter(obj => {
+    return obj.gender === 'male' || obj.gender === 'female';
+  }).map(obj => {
+    return obj.name;
+  }).join(' and ');
 };
-
+// help from group
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5
 
@@ -145,6 +154,13 @@ Write a function named findShortest that, given the Star Wars data from Challeng
 
 let findShortest = (data) => {
   // Solution code here...
+  return data.reduce((acc, cur) => {
+    if (parseInt(acc.height) < parseInt(cur.height) ){
+      return acc;
+    } else {
+      return cur;
+    }
+  }).name;
 };
 
 /* ------------------------------------------------------------------------------------------------
