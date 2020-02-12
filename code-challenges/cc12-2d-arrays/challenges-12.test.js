@@ -48,9 +48,25 @@ Here is sample data for the 9:00 sales: { sales: '88 cookies', time: '9 a.m.' }.
 Write a function named salesData that uses forEach to iterate over the hourlySales array and create an object for each hour. Return an array of the formatted data.
 ------------------------------------------------------------------------------------------------ */
 
+let hoursArr = ['9 a.m.', '10 a.m.', '11 a.m.', '12 p.m.', '1 p.m.', '2 p.m.', '3 p.m.', '4 p.m.', '5 p.m.', '6 p.m.', '7 p.m.', '8 p.m.'];
+let hourlySales =  [88, 153, 252, 286, 139, 161, 145, 232, 276, 207, 161, 169 ];
+
 const salesData = (hours, data) => {
   // Solution code here...
+
+  let resultsArr = [];
+
+  for (let i = 0; i< hours.length; i++){
+    let sales = {};
+
+    sales['sales']=data[i] + ' cookies';
+    sales['time']=hours[i];
+    resultsArr.push(sales);
+  }
+  return resultsArr;
 };
+
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
@@ -72,6 +88,8 @@ const errands = [
 
 const howManyTreats = (arr) => {
   // Solution code here...
+  console.log(arr[2].items[1].quantity);
+  return arr[2].items[1].quantity;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -94,6 +112,11 @@ The top row of the board is considered row zero and row numbers increase as they
 
 const battleship = (board, row, col) => {
   //  Solution code here...
+  if (board[row][col] === '#') {
+    return 'hit';
+  } else {
+    return 'miss';
+  }
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -106,7 +129,19 @@ For example, the following input returns a product of 720: [[1,2], [3,4], [5,6]]
 
 const calculateProduct = (numbers) => {
   // Solution code here...
+  return numbers.map(arr => {
+    if (arr.length > 0) {
+      return arr.reduce((acc, cur) => {
+        return acc * cur;
+      });
+    } else {
+      return 1;
+    }
+  }).reduce((acc, cur) => {
+    return acc * cur;
+  });
 };
+// got claytons help here
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 6
@@ -126,7 +161,15 @@ const weeklyTemperatures = [
 
 const averageDailyTemperature = (weather) => {
   // Solution code here...
+  return weather.map(arr => {
+    return arr.reduce((acc, cur) => {
+      return acc + cur;
+    }) / arr.length;
+  }).reduce((acc, cur) => {
+    return acc + cur;
+  }) / weather.length;
 };
+// got claytons help in review
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 7
@@ -147,7 +190,22 @@ let lowestWeeklyTemperatureData = [
 
 const lowestWeeklyAverage = (weather) => {
   // Solution code here...
+  let weeklyAvg = weather.map(arr => {
+    return arr.reduce((acc, cur) => {
+      return acc + cur;
+    }) / arr.length;
+  });
+  let lowestAvg = weeklyAvg.reduce((acc, cur) => {
+    if (acc < cur) {
+      return acc;
+    } else {
+      return cur;
+    }
+  });
+  return lowestAvg;
 };
+
+//claytons help again in review
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 8
@@ -163,6 +221,15 @@ For example, excel('1,1,1\n4,4,4\n9,9,9') returns [3, 12, 27].
 
 const excel = (str) => {
   // Solution code here...
+  let strSplitN = str.split('\n');
+  let comma = strSplitN.map(arr => {
+    return arr.split(',');
+  });
+  return comma.map(arr => {
+    return arr.reduce((acc, cur) => {
+      return parseInt(acc) + parseInt(cur);
+    })
+  })
 };
 
 /* ------------------------------------------------------------------------------------------------
