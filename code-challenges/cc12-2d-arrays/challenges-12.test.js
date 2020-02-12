@@ -68,7 +68,6 @@ const salesData = (hours, data) => {
 
 
 
-
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
 
@@ -130,7 +129,19 @@ For example, the following input returns a product of 720: [[1,2], [3,4], [5,6]]
 
 const calculateProduct = (numbers) => {
   // Solution code here...
+  return numbers.map(arr => {
+    if (arr.length > 0) {
+      return arr.reduce((acc, cur) => {
+        return acc * cur;
+      });
+    } else {
+      return 1;
+    }
+  }).reduce((acc, cur) => {
+    return acc * cur;
+  });
 };
+// got claytons help here
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 6
@@ -150,6 +161,7 @@ const weeklyTemperatures = [
 
 const averageDailyTemperature = (weather) => {
   // Solution code here...
+  
 };
 
 /* ------------------------------------------------------------------------------------------------
