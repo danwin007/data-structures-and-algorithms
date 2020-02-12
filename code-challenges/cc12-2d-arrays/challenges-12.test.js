@@ -190,7 +190,22 @@ let lowestWeeklyTemperatureData = [
 
 const lowestWeeklyAverage = (weather) => {
   // Solution code here...
+  let weeklyAvg = weather.map(arr => {
+    return arr.reduce((acc, cur) => {
+      return acc + cur;
+    }) / arr.length;
+  });
+  let lowestAvg = weeklyAvg.reduce((acc, cur) => {
+    if (acc < cur) {
+      return acc;
+    } else {
+      return cur;
+    }
+  });
+  return lowestAvg;
 };
+
+//claytons help again in review
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 8
@@ -206,6 +221,15 @@ For example, excel('1,1,1\n4,4,4\n9,9,9') returns [3, 12, 27].
 
 const excel = (str) => {
   // Solution code here...
+  let strSplitN = str.split('\n');
+  let comma = strSplitN.map(arr => {
+    return arr.split(',');
+  });
+  return comma.map(arr => {
+    return arr.reduce((acc, cur) => {
+      return parseInt(acc) + parseInt(cur);
+    })
+  })
 };
 
 /* ------------------------------------------------------------------------------------------------
