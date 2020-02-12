@@ -89,6 +89,8 @@ const errands = [
 
 const howManyTreats = (arr) => {
   // Solution code here...
+  console.log(arr[2].items[1].quantity);
+  return arr[2].items[1].quantity;
 };
 
 /* ------------------------------------------------------------------------------------------------
