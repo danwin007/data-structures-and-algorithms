@@ -161,8 +161,15 @@ const weeklyTemperatures = [
 
 const averageDailyTemperature = (weather) => {
   // Solution code here...
-  
+  return weather.map(arr => {
+    return arr.reduce((acc, cur) => {
+      return acc + cur;
+    }) / arr.length;
+  }).reduce((acc, cur) => {
+    return acc + cur;
+  }) / weather.length;
 };
+// got claytons help in review
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 7
