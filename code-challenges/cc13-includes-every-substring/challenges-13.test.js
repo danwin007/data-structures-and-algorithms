@@ -36,7 +36,9 @@ For example, (123) 456-7890 returns 1234567890
 
 const standardizePhoneNumbers = (arr) => {
   // Solution code here...
-  return arr.substring(1,4) + arr.substring(6,9) + arr.substring(10, 15);
+  return arr.map( arrNum => {
+    return arrNum.substring(1,4) + arrNum.substring(6,9) + arrNum.substring(10, 15);
+  })
 };
 
 //this one outputs the correct info but gets the error "arr.substring is not a function" so I dunno what to do about it.
