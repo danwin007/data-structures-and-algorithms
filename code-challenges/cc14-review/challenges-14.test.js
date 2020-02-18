@@ -10,6 +10,9 @@ For example, ['apple', 'banana', 'MacGyver'] returns ['Apple', 'Banana', 'MacGyv
 
 const toTitleCase = (arr) => {
   // Solution code here...
+  return arr.map( elem => {
+    return elem.charAt(0).toUpperCase() + elem.slice(1);
+  })
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -119,6 +122,7 @@ https:/missingslash.org returns false because the URL is malformed
 ------------------------------------------------------------------------------------------------ */
 const isSecure = (url) => {
 // Solution code here...
+return (/^(?:https:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$/gm).test(url);
 };
 
 /* ------------------------------------------------------------------------------------------------
