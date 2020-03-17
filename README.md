@@ -22,3 +22,5 @@ We are not to use any built-in methods. Any methods we write should be clean, re
 In order to reverse the array, I will want to find the last item of the input array and put that into the new array. I can use a for loop to do this.
 
 ## Solution
+
+![reverseArray](/code-challenges/assets/reverseArray.jpg)
