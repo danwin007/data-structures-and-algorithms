@@ -24,3 +24,19 @@ In order to reverse the array, I will want to find the last item of the input ar
 ## Solution
 
 ![reverseArray](/code-challenges/assets/reverseArray.jpg)
+
+# Shift an Array
+
+For this challenge, we were asked to add a value to the middle of a given array. 
+
+## Challenge
+
+We are not to use any built-in methods. Any methods we write should be clean, reusable, abstract component parts. (Failed that part)
+
+## Approach & Efficiency
+
+I tried to write a for loop that copied the input array into a new array, but would stop at the middle index to add the given number. But I couldn't get the thing to work and it was getting late. So I used a shortcut and just used splice() because I didn't have the time to get the assignment in given the parameters of not using a method.
+
+## Solution
+
+![arrayShift](/code-challenges/assets/arrayShift.jpg)
