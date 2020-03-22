@@ -40,3 +40,19 @@ I tried to write a for loop that copied the input array into a new array, but wo
 ## Solution
 
 ![arrayShift](/code-challenges/assets/arrayShift.jpg)
+
+# Binary Search
+
+For this challenge, we were asked to write a function which takes in two parameters: a sorted array and a key. Then, if the key exists in the array, return the index of that spot in the array. If the key does not exist in the array, return -1. 
+
+## Challenge
+
+We are not to use any built-in methods. Any methods we write should be clean, reusable, abstract component parts.
+
+## Approach & Efficiency
+
+I decided to write a for loop that would check the entire array for the key. If found, the function will return the index of the key and also increment a tracking variable. Outside of the for loop, if the tracking variable has not been touched, then we can assume the key did not exist in the array. In that case, return a -1. 
+
+## Solution
+
+![binarySearch](/code-challenges/assets/binarySearch.jpg)
