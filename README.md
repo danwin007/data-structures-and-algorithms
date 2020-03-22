@@ -55,4 +55,4 @@ I decided to write a for loop that would check the entire array for the key. If 
 
 ## Solution
 
-![binarySearch](/code-challenges/assets/binarySearch.jpg)
+![binarySearch](/code-challenges/assets/binarySearch.png)
