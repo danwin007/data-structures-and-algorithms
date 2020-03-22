@@ -39,7 +39,7 @@ I tried to write a for loop that copied the input array into a new array, but wo
 
 ## Solution
 
-![arrayShift](/code-challenges/assets/arrayShift.jpg)
+![arrayShift](/code-challenges/assets/arrayShift.png)
 
 # Binary Search
 
