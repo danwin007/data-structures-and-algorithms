@@ -51,43 +51,55 @@ class LinkedList {
 ///use try catch blocks for err handle
 
   insert(val){
-    //only inserts at beginning
-    let newNode = new Node(val);
+    try{
+      //only inserts at beginning
+      let newNode = new Node(val);
 
-    newNode.next = this.head;
-    this.head = newNode;
+      newNode.next = this.head;
+      this.head = newNode;
+    } catch(e){
+      throw err;
+    }
   }
 
   includes(val){
-  //need to look at each item from head to tail
-  //for loop?
-  //found at https://www.geeksforgeeks.org/implementation-linkedlist-javascript/
-    let count = 0;
-    let currVal = this.head;
+    try {
+      //need to look at each item from head to tail
+      //for loop?
+      //found at https://www.geeksforgeeks.org/implementation-linkedlist-javascript/
+      let count = 0;
+      let currVal = this.head;
 
-    //iterate over list
-    //if found, give count of item
-    while (currVal != null){
-      if (currVal.val === val)
-        return console.log('item found at', count);
-      count++;
-      currVal = currVal.next;
+      //iterate over list
+      //if found, give count of item
+      while (currVal != null){
+        if (currVal.val === val)
+          return console.log('item found at', count, val);
+        count++;
+        currVal = currVal.next;
+      }
+      //if not found
+      console.log('false, item not found', val);
+    } catch(e){
+      throw err;
     }
-    //if not found
-    console.log('false, item not found');
   }
 
   toString(){
-    let currNode = this.head;
-    let str = '';
-
-    while(currNode != null) {
-      str += `[ ${currNode.val}] ->`;
-      currNode = currNode.next;
+    try {
+      let currNode = this.head;
+      let str = '';
+  
+      while(currNode != null) {
+        str += `[ ${currNode.val}] ->`;
+        currNode = currNode.next;
+      }
+  
+      str += 'null';
+      console.log(str);
+    } catch(e){
+      throw err;
     }
-
-    str += 'null';
-    console.log(str);
   }
 }
 
