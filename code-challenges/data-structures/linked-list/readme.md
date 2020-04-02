@@ -2,7 +2,7 @@
 The task was to create two classes: Node and LinkedList. Both should be exported by this file.
     
 ## Links
-Pull Request: https://github.com/danwin007/data-structures-and-algorithms/pull/46
+Pull Request: https://github.com/danwin007/data-structures-and-algorithms/pull/47
     
 ## Challenge
 Node should have the properties: val, next, and prev (although prev was for a stretch goal).
@@ -29,3 +29,6 @@ No APIs used.
 ## Testing
 <!-- Description of how to run your tests -->
 Tried to get tests running. I am bad at this. Hit a weird error and am stuck. Will bring up during lecture to see where I went wrong.
+
+Update: 4/1/20
+After lecture, I went in and finished building my tests. Then I adjusted them to fit my code better and everything is working!!
