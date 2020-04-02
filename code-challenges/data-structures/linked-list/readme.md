@@ -2,7 +2,7 @@
 The task was to create two classes: Node and LinkedList. Both should be exported by this file.
     
 ## Links
-Pull Request: https://github.com/danwin007/data-structures-and-algorithms/pull/46
+Pull Request: https://github.com/danwin007/data-structures-and-algorithms/pull/47
     
 ## Challenge
 Node should have the properties: val, next, and prev (although prev was for a stretch goal).
