@@ -91,12 +91,12 @@ class LinkedList {
       let str = '';
   
       while(currNode != null) {
-        str += `[ ${currNode.val}] ->`;
+        str += `[${currNode.val}] ->`;
         currNode = currNode.next;
       }
   
       str += 'null';
-      console.log(str);
+      return console.log(str);
     } catch(e){
       throw err;
     }

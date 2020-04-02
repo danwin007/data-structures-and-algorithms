@@ -29,3 +29,6 @@ No APIs used.
 ## Testing
 <!-- Description of how to run your tests -->
 Tried to get tests running. I am bad at this. Hit a weird error and am stuck. Will bring up during lecture to see where I went wrong.
+
+Update: 4/1/20
+After lecture, I went in and finished building my tests. Then I adjusted them to fit my code better and everything is working!!
