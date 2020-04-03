@@ -3,7 +3,7 @@
 const classes = require('./linked-list.js');
 const LinkedList = classes.LinkedList;
 
-describe('expected success tests', () => {
+describe('Challenge 5: expected success tests', () => {
     it('successfully instantiates an empty list', () => {
         expect(() => {
            return new LinkedList();
@@ -78,7 +78,7 @@ describe('expected success tests', () => {
 
 });
 
-describe('expected fail tests', () => {
+describe('Challenge 5: expected fail tests', () => {
   it('can respond correctly when searching for a node that doesnt exist', () => {
     let newList = new LinkedList();
 
@@ -89,3 +89,74 @@ describe('expected fail tests', () => {
     expect(newList.includes('D')).toBe(console.log('false, item not found D'));
   });
 });
+
+describe('Challenge 6: expected pass tests', () => {
+    it('1. Can successfully add a node to the end of the linked list', () => {
+      let newList = new LinkedList();
+  
+      newList.insert('A');
+      newList.insert('B');
+      newList.insert('C');
+      newList.append('D');
+  
+      expect(newList.toString()).toBe(console.log('[C], [B], [A], [D]'));
+    });
+
+    it('2. Can successfully add multiple nodes to the end of a linked list', () => {
+        let newList = new LinkedList();
+    
+        newList.insert('A');
+        newList.insert('B');
+        newList.insert('C');
+        newList.append('D');
+        newList.append('E');
+    
+        expect(newList.toString()).toBe(console.log('[C], [B], [A], [D], [E]'));
+      });
+
+    it('3. Can successfully insert a node before a node located i the middle of a linked list', () => {
+        let newList = new LinkedList();
+    
+        newList.insert('A');
+        newList.insert('B');
+        newList.insert('C');
+        newList.insert('D');
+        newList.insertBefore('C', 'BtoC');
+    
+        expect(newList.toString()).toBe(console.log('[D], [C], [BtoC], [B], [A]'));
+      });
+
+      it('4. Can successfully insert a node before the first node of a linked list', () => {
+        let newList = new LinkedList();
+    
+        newList.insert('A');
+        newList.insert('B');
+        newList.insert('C');
+        newList.insert('D');
+    
+        expect(newList.toString()).toBe(console.log('[D], [C], [B], [A]'));
+      });
+
+      it('5. Can successfully insert after a node in the middle of the linked list', () => {
+        let newList = new LinkedList();
+    
+        newList.insert('A');
+        newList.insert('B');
+        newList.insert('C');
+        newList.insert('D');
+        newList.insertAfter('B', 'BtoC');
+    
+        expect(newList.toString()).toBe(console.log('[D], [C], [BtoC], [B], [A]'));
+      });
+
+      it('6. Can successfully insert a node after the last node of the linked list', () => {
+        let newList = new LinkedList();
+    
+        newList.insert('A');
+        newList.insert('B');
+        newList.insert('C');
+        newList.append('D');
+    
+        expect(newList.toString()).toBe(console.log('[C], [B], [A], [D]'));
+      });
+  });
