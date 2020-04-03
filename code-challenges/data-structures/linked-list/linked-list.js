@@ -101,24 +101,120 @@ class LinkedList {
       throw err;
     }
   }
+
+  append(val){
+    try{
+      let newNode = new Node(val);
+
+      if (!this.head){
+        this.head = newNode;
+        return this.head;
+      }
+
+      let tail = this.head;
+      while (tail.next !==null) {
+        tail = tail.next;
+      }
+      tail.next = newNode;
+      return this.head;
+
+    } catch(e){
+      throw err;
+    }
+  }
+
+  insertBefore(val, newVal){
+    try{
+
+      let newNode = new Node(newVal);
+
+      //if list is empty
+      if (!this.head){
+        this.head = newNode;
+        return this.head;
+      }
+      
+      let currVal = this.head;
+
+      while (currVal){
+        // console.log('we in while');
+        if (currVal.next.val === val){
+          newNode.next = currVal.next;
+          currVal.next = newNode;
+          break;
+        }
+        currVal = currVal.next
+      }
+
+    } catch(e){
+      throw err;
+    }
+  }
+
+  insertAfter(val, newVal){
+    try{
+
+      let newNode = new Node(newVal);
+
+      //if list is empty
+      if (!this.head){
+        this.head = newNode;
+        return this.head;
+      }
+      
+      let currVal = this.head;
+
+      while (currVal){
+          //currVal is 3
+          // target is 3, put after 3
+        if (currVal.next.val === val){
+          //currVal.next.val is 4
+          newNode.next = currVal.next.next;
+          currVal.next.next = newNode;
+          break;
+        }
+        currVal = currVal.next
+      }
+
+    } catch(e){
+      throw err;
+    }
+  }
 }
 
 let myList = new LinkedList();
 
+//adds A, shows before and after
 myList.toString();
 myList.insert('A');
 myList.toString();
 
+//adds B, shows after
 myList.insert('B');
 myList.toString();
 
+//adds C, shows after
 myList.insert('C');
 myList.toString();
 
+//adds D, shows after
 myList.insert('D');
 myList.toString();
 
+//checks for A, yes, checks for E, no
 myList.includes('A');
 myList.includes('E');
+
+//adds DD to end, shows after
+myList.append('DD');
+myList.toString();
+
+//adds AA to node before C
+myList.insertBefore('DD','AA');
+myList.toString();
+
+//adds N after A
+myList.insertAfter('A', 'N');
+myList.toString();
 
 module.exports = { Node, LinkedList};
