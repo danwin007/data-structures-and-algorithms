@@ -32,3 +32,19 @@ Tried to get tests running. I am bad at this. Hit a weird error and am stuck. Wi
 
 Update: 4/1/20
 After lecture, I went in and finished building my tests. Then I adjusted them to fit my code better and everything is working!!
+
+# Challenge 6 - Linked List Insertions
+Practice doing linked list insertion methods. Also build unit tests.
+
+## Challenge Description
+Write the following methods for the Linked List class:
+
+* .append(value) which adds a new node with the given value to the end of the list
+* .insertBefore(value, newVal) which add a new node with the given newValue immediately before the first value node
+* .insertAfter(value, newVal) which add a new node with the given newValue immediately after the first value node
+
+## Approach & Efficiency
+I built out all the methods first. Made sure those were working. Then I tailored the tests to fit the methods. 
+
+## Solution
+A whiteboard didn't really make sense for this challenge so I did not do one. Please let me know if I am mistaken here!
