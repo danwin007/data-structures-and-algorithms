@@ -33,6 +33,8 @@ Tried to get tests running. I am bad at this. Hit a weird error and am stuck. Wi
 Update: 4/1/20
 After lecture, I went in and finished building my tests. Then I adjusted them to fit my code better and everything is working!!
 
+/////////////
+
 # Challenge 6 - Linked List Insertions
 Practice doing linked list insertion methods. Also build unit tests.
 
@@ -48,3 +50,22 @@ I built out all the methods first. Made sure those were working. Then I tailored
 
 ## Solution
 A whiteboard didn't really make sense for this challenge so I did not do one. Please let me know if I am mistaken here!
+
+/////////////
+
+# Challenge 7 - K-th Value from the end of a linked list
+Practice doing linked list insertion methods. Also build unit tests.
+
+## Challenge Description
+Write a method for the Linked List class which takes a number, k, as a parameter. Return the node’s value that is k from the end of the linked list. You have access to the Node class and all the properties on the Linked List class as well as the methods created in previous challenges.
+
+## Approach & Efficiency
+
+### Unit Tests
+1. Where k is greater than the length of the linked list
+2. Where k and the length of the list are the same
+3. Where k is not a positive integer
+4. Where the linked list is of a size 1
+5. “Happy Path” where k is not at the end, but somewhere in the middle of the linked list
+
+## Solution
