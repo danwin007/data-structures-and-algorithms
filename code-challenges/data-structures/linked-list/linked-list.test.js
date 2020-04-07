@@ -160,3 +160,62 @@ describe('Challenge 6: expected pass tests', () => {
         expect(newList.toString()).toBe(console.log('[C], [B], [A], [D]'));
       });
   });
+
+  describe('Challenge 7: expected pass tests', () => {
+    it('1. Where k is greater than the length of the linked list', () => {
+      let newList = new LinkedList();
+  
+      newList.insert('A');
+      newList.insert('B');
+      newList.insert('C');
+      newList.append('D');
+  
+      expect(newList.kthNodeFromEnd(5)).toBe(console.log('k val greater than list length'));
+    });
+
+    it('2. Where k and the length of the list are the same', () => {
+        let newList = new LinkedList();
+    
+        newList.insert('A');
+        newList.insert('B');
+        newList.insert('C');
+        newList.append('D');
+        newList.append('E');
+    
+        expect(newList.kthNodeFromEnd(5)).toBe(console.log('k of 5 val is E'));
+      });
+
+    it('3. Where k is not a positive integer', () => {
+        let newList = new LinkedList();
+    
+        newList.insert('A');
+        newList.insert('B');
+        newList.insert('C');
+        newList.insert('D');
+    
+        expect(newList.kthNodeFromEnd(-1)).toBe(console.log('please use a positive k value'));
+      });
+
+      it('4. Where the linked list is of a size 1', () => {
+        let newList = new LinkedList();
+    
+        newList.insert('A');
+       
+        expect(newList.kthNodeFromEnd(1)).toBe(console.log('k of 1 val is A'));
+      });
+
+      it('5. “Happy Path” where k is not at the end, but somewhere in the middle of the linked list', () => {
+        let newList = new LinkedList();
+    
+        newList.insert('A');
+        newList.insert('B');
+        newList.insert('C');
+        newList.insert('D');
+        newList.insert('E');
+        newList.insert('F');
+        newList.insert('G');
+    
+        expect(newList.kthNodeFromEnd(4)).toBe(console.log('k of 4 val is D'));
+      });
+
+  });

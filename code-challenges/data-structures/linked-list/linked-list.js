@@ -85,6 +85,34 @@ class LinkedList {
     }
   }
 
+  kthNodeFromEnd(k){
+    //found help at
+    //https://thatjsdude.com/interview/linkedList.html#kthNodeFromEnd
+    // try {
+      let currNode = this.head;
+      let counter = 1;
+      let kNode = [];
+
+      //handle bad k values
+    if(k <= 0) return console.log('please use a positive k value');
+
+    while(currNode){
+      if( counter == k) kNode = this.head;
+      else if (counter - k > 0){
+        kNode = kNode.next;
+      }
+      counter++;
+
+      currNode = currNode.next;
+    }
+    if (k - 1 >= counter) return console.log('k val greater than list length');
+    else return console.log('k of ', k,  'val is ', kNode.val);
+
+    // } catch(e){
+    //   throw err;
+    // }
+  }
+
   toString(){
     try {
       let currNode = this.head;
@@ -216,5 +244,11 @@ myList.toString();
 //adds N after A
 myList.insertAfter('A', 'N');
 myList.toString();
+
+myList.kthNodeFromEnd(3);
+myList.kthNodeFromEnd(1);
+myList.kthNodeFromEnd(-1);
+myList.kthNodeFromEnd(7);
+myList.kthNodeFromEnd(9);
 
 module.exports = { Node, LinkedList};
