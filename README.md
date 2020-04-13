@@ -71,6 +71,6 @@ Wrote a while loop that checked for each element. Then appended the first sectio
 
 ## Solution
 
-![binarySearch](/code-challenges/assets/linkedListmerge.png)
+![linkedListMerge](/code-challenges/assets/linkedListMerge.png)
 
 
