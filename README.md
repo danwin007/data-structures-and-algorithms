@@ -56,3 +56,21 @@ I decided to write a for loop that would check the entire array for the key. If 
 ## Solution
 
 ![binarySearch](/code-challenges/assets/binarySearch.png)
+
+# Linked List Merge
+
+Write a function called mergeLists which takes two linked lists as arguments. Zip the two linked lists together into one so that the nodes alternate between the two lists and return a reference to the head of the zipped list. 
+
+## Challenge
+
+We are not to use any built-in methods. Any methods we write should be clean, reusable, abstract component parts.
+
+## Approach & Efficiency
+
+Wrote a while loop that checked for each element. Then appended the first section of each element within the loop. The next iteration of the loop moved to the next element in each list.
+
+## Solution
+
+![binarySearch](/code-challenges/assets/linkedListmerge.png)
+
+
