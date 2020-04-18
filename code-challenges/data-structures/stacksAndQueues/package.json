@@ -1,0 +1,14 @@
+{
+  "name": "stacksandqueues",
+  "version": "1.0.0",
+  "description": "",
+  "main": "node.js",
+  "scripts": {
+    "test": "jest --verbose --coverage"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "jest": "^25.3.0"
+  }
+}

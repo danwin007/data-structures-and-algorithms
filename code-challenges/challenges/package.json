@@ -1,0 +1,15 @@
+{
+  "name": "challenges",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./linked-list-merge/ll-merge.js",
+  "scripts": {
+    "start": "node ll-merge.js",
+    "test": "jest --verbose --coverage"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "jest": "^25.3.0"
+  }
+}

@@ -212,43 +212,43 @@ class LinkedList {
 
 let myList = new LinkedList();
 
-//adds A, shows before and after
-myList.toString();
-myList.insert('A');
-myList.toString();
+// //adds A, shows before and after
+// myList.toString();
+// myList.insert('A');
+// myList.toString();
 
-//adds B, shows after
-myList.insert('B');
-myList.toString();
+// //adds B, shows after
+// myList.insert('B');
+// myList.toString();
 
-//adds C, shows after
-myList.insert('C');
-myList.toString();
+// //adds C, shows after
+// myList.insert('C');
+// myList.toString();
 
-//adds D, shows after
-myList.insert('D');
-myList.toString();
+// //adds D, shows after
+// myList.insert('D');
+// myList.toString();
 
-//checks for A, yes, checks for E, no
-myList.includes('A');
-myList.includes('E');
+// //checks for A, yes, checks for E, no
+// myList.includes('A');
+// myList.includes('E');
 
-//adds DD to end, shows after
-myList.append('DD');
-myList.toString();
+// //adds DD to end, shows after
+// myList.append('DD');
+// myList.toString();
 
-//adds AA to node before C
-myList.insertBefore('DD','AA');
-myList.toString();
+// //adds AA to node before C
+// myList.insertBefore('DD','AA');
+// myList.toString();
 
-//adds N after A
-myList.insertAfter('A', 'N');
-myList.toString();
+// //adds N after A
+// myList.insertAfter('A', 'N');
+// myList.toString();
 
-myList.kthNodeFromEnd(3);
-myList.kthNodeFromEnd(1);
-myList.kthNodeFromEnd(-1);
-myList.kthNodeFromEnd(7);
-myList.kthNodeFromEnd(9);
+// myList.kthNodeFromEnd(3);
+// myList.kthNodeFromEnd(1);
+// myList.kthNodeFromEnd(-1);
+// myList.kthNodeFromEnd(7);
+// myList.kthNodeFromEnd(9);
 
 module.exports = { Node, LinkedList};
