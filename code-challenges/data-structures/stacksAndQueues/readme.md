@@ -5,7 +5,8 @@ This lab focuses on learning the data structures of Stacks and Queues.
 We are to create a Stack, Queue, and Node class. Along with all appropriate class methods.
 
 ## Approach & Efficiency
-<!-- What approach did you take? Why? What is the Big O space/time for this approach? -->
+
+All methods should be O(1).
 
 ## API
 

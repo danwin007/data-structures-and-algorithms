@@ -7,9 +7,10 @@ class Queue {
   }
 
   enqueue(val) {
+    // add to front
     let nodeToQueue = new Node(val);
 
-    if (this.isEmpty()){
+    if (this.isEmpty2()){
       this.front = nodeToQueue;
       this.rear = nodeToQueue;
       return;
@@ -20,9 +21,10 @@ class Queue {
   }
 
   dequeue() {
+    // remove from front
     let nodeToDequeue = this.front;
 
-    if (this.isEmpty()){
+    if (this.isEmpty2()){
       throw 'NullReferenceException';
       return;
     }
@@ -34,7 +36,8 @@ class Queue {
   }
 
   peek() {
-    if (this.isEmpty()){
+    // look at top
+    if (this.isEmpty2()){
       throw 'NullReferenceException';
       return;
     }
@@ -42,7 +45,15 @@ class Queue {
     return this.front.val;
   }
 
-  isEmpty() {
+  isEmpty1() {
+    if (!this.front && !this.rear)
+    return true;
+  }
+
+  isEmpty2() {
     return !this.front && !this.rear;
   }
+
 }
+
+module.exports = Queue;
