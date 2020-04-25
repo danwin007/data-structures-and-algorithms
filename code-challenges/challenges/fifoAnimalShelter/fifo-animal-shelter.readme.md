@@ -1,4 +1,4 @@
-# Challenge Summary
+# Challenge Summary - FIFO Animal Shelter
 
 Create a class called AnimalShelter which holds only dogs and cats. 
 The shelter operates using a first-in, first-out approach.
@@ -14,4 +14,4 @@ Implement the following methods:
 * dequeue = O(n)
 
 ## Solution
-<!-- Embedded whiteboard image -->
+![fifoAnimalShelter](/code-challenges/assets/fifoAnimalShelter.png)
