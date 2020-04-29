@@ -1,4 +1,4 @@
-# Challenge Summary
+# Challenge Summary - Multi Bracket Validation
 Write a function that tests for balanced bracket usage.
 
 ## Challenge Description
