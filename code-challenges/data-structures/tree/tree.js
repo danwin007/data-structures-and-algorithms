@@ -85,8 +85,14 @@ class BinarySearchTree extends BinaryTree {
     }
   }
 
-  contains(val){
+  contains(root, val){
     try{
+      //return true or false if val is in the tree
+      if(root == null) return false;
+      if(root.val == val) return true;
+
+      else if(root.val < val) return this.contains(root.right, val);
+      else return this.contains(root.left, val);
       
     } catch(e){
       throw err, 'contains error';
