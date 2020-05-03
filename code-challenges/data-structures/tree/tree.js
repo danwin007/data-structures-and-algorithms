@@ -54,9 +54,32 @@ class BinarySearchTree extends BinaryTree {
     this.root = null;
   }
 
-  add(val){
+  add(root,val){
     try{
-      
+      let newNode = new Node(val);
+
+      if(root = null) return newNode;
+
+      let parentNode = null;
+      let currNode = null;
+
+      while(currNode != null){
+        parentNode = currNode;
+        if(currNode.val <= val){
+          currNode = currNode.right;
+        } else {
+          currNode = currNode.left;
+        }
+      }
+
+      if(parentNode.val <= val){
+        parentNode.right = newNode;
+      } else {
+        parentNode.left = newNode;
+      }
+
+      return root;
+
     } catch(e){
       throw err, 'add error';
     }
