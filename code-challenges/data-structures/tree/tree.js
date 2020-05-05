@@ -10,78 +10,99 @@ class Node {
 }
 
 class BinaryTree {
-  constructor(val) {
+  constructor() {
     this.root = null;
   }
 
   preOrder(root){
     try{
-      print(root.val);
-      if(root.left) this.preOrder(root.left);
-      if(root.right) this.preOrder(root.right);
-      return;
+      if(root != null)
+      {
+        let arr = [];
+        arr.push(root.val);
+
+        if(root.left) arr =[...arr,...this.preOrder(root.left)];
+        if(root.right) arr = [...arr,...this.preOrder(root.right)];
+        console.log('preorder', arr);
+        return arr;
+      }
     } catch(e){
-      throw err, 'preOrder error'; 
+      throw err; 
     }
   }
 
   inOrder(root) {
     try{
-      if(root.left) this.inOrder(root.left);
-      print(root.val);
-      if (root.right) this.inOrder(root.right);
-      return;
+      if(root != null)
+      {
+        let arr = [];
+        
+        if(root.left) arr = [...arr,...this.inOrder(root.left)];
+        arr.push(root.val);
+        if (root.right) arr = [...arr,...this.inOrder(root.right)];
+        console.log('inorder', arr);
+        return arr;
+      }
     } catch(e){
-      throw err, 'inOrder error';
+      throw err;
     }
   }
 
-  postOrder(root){
+  postOrder(root) {
     try{
-      if(root.left) this.postOrder(root.left);
-      if(root.right) this.postOrder(root.right);
-      print(root.val);
-      return;
+      if(root != null)
+      {
+        let arr = [];
+
+        if(root.left) arr = [...arr,...this.postOrder(root.left)];
+        if(root.right) arr = [...arr,...this.postOrder(root.right)];
+        arr.push(root.val);
+        console.log('postOrder', arr);
+        return arr;
+      }
     } catch(e){
-      throw err, 'postOrder error';
+      throw err;
     }
   }
 }
 
 class BinarySearchTree extends BinaryTree {
-  constructor(val) {
-    super(val);
-    this.root = null;
+  constructor() {
+    super();
+    // this.root = null;
   }
 
-  add(root,val){
+  add(val){
+    // found at https://www.youtube.com/watch?v=5cU1ILGy6dM
     try{
-      let newNode = new Node(val);
-
-      if(root = null) return newNode;
-
-      let parentNode = null;
-      let currNode = null;
-
-      while(currNode != null){
-        parentNode = currNode;
-        if(currNode.val <= val){
-          currNode = currNode.right;
-        } else {
-          currNode = currNode.left;
-        }
-      }
-
-      if(parentNode.val <= val){
-        parentNode.right = newNode;
+      let node = this.root;
+      if (node === null) {
+        this.root = new Node(val);
+        return;
       } else {
-        parentNode.left = newNode;
+        const searchTree = function(node) {
+          if (val < node.val) {
+            if (node.left === null) {
+              node.left = new Node(val);
+              return;
+            } else if (node.left !== null) {
+              return searchTree(node.left);
+            }
+          } else if (val > node.val) {
+            if (node.right === null) {
+              node.right = new Node(val);
+              return;
+            } else if (node.right !== null) {
+              return searchTree(node.right);
+            }
+          } else {
+            return null;
+          }
+        };
+        return searchTree(node);
       }
-
-      return root;
-
     } catch(e){
-      throw err, 'add error';
+      throw err;
     }
   }
 
@@ -95,10 +116,21 @@ class BinarySearchTree extends BinaryTree {
       else return this.contains(root.left, val);
       
     } catch(e){
-      throw err, 'contains error';
+      throw err;
     }
   }
 }
+
+let myTree = new BinarySearchTree();
+myTree.add(3);
+myTree.add(1);
+myTree.add(2);
+myTree.preOrder(myTree.root);
+myTree.inOrder(myTree.root);
+myTree.postOrder(myTree.root);
+// console.log(myTree.contains(myTree.root, 2));
+// console.log(myTree.contains(myTree.root, 4));
+
 
 
 
