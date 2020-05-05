@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node tree.js",
     "lint": "eslint **/*.js",
-    "test": "jest --verbose --coverage",
+    "test": "jest --verbose --coverage tree.test.js",
     "test-watch": "jest --watchAll --verbose --coverage"
   },
   "author": "",

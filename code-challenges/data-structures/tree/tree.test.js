@@ -43,28 +43,51 @@ describe('Happy Path', () => {
   });
 
   it('4. You can successfully do a preOrder traversal', () => {
-      
-    expect(false).toBe(true);
+    let myTree = new BinarySearchTree();
+    myTree.add(3);
+    myTree.add(1);
+    myTree.add(2);
+
+    expect(myTree.preOrder(myTree.root)).toStrictEqual([3, 1, 2]);
   });
 
   it('5. You can successfully do an inOrder traversal', () => {
-      
-    expect(false).toBe(true);
+    let myTree = new BinarySearchTree();
+    myTree.add(3);
+    myTree.add(1);
+    myTree.add(2);
+
+    expect(myTree.inOrder(myTree.root)).toStrictEqual([1, 2, 3]);
   });
 
   it('6. You can successfully do a postOrder traversal', () => {
-      
-    expect(false).toBe(true);
+    let myTree = new BinarySearchTree();
+    myTree.add(3);
+    myTree.add(1);
+    myTree.add(2);
+
+    expect(myTree.postOrder(myTree.root)).toStrictEqual([2, 1, 3]);
   });
 
   it('7. You can successfully add a value to a binary search tree', () => {
-      
-    expect(false).toBe(true);
+    let myTree = new BinarySearchTree();
+    myTree.add(2);
+    myTree.add(1);
+    myTree.add(3);
+    myTree.add(9);
+
+    expect(myTree.root.right.right.val).toBe(9);
   });
 
   it('8. You can search a binary search tree for a value and get the correct true/false result', () => {
+    let myTree = new BinarySearchTree();
+    myTree.add(2);
+    myTree.add(1);
+    myTree.add(3);
       
-    expect(false).toBe(true);
+    expect(myTree.contains(myTree.root, 3)).toBe(true);
+    expect(myTree.contains(myTree.root, 4)).toBe(false);
+
   });
 
 
