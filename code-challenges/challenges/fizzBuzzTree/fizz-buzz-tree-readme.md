@@ -15,5 +15,5 @@ Conduct “FizzBuzz” on a tree while traversing through it. Change the values 
 ## Approach & Efficiency
 * O(n) since it needs to iterate through each node
 
-## Solution
-![fizzbuzztree](/code-challenges/assets/fifoAnimalShelter.png)
+## Pull Request
+[fizzbuzztree](https://github.com/danwin007/data-structures-and-algorithms/pull/55)
