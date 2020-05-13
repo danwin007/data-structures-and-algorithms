@@ -1,144 +1,94 @@
 'use strict';
 
-'use strict';
+class TreeNode {
+    constructor(val) {
+        this.val = val;
+        this.left = null;
+        this.right = null;
+    }
+}
 
+class QNode {
+    constructor(val) {
+        this.val = val;
+        this.next = null;
+    }
+}
 
-class Node {
-  constructor(val) {
-    this.val = val;
-    this.left = null;
-    this.right = null;
-  }
+class Queue {
+    constructor() {
+        this.front = null;
+        this.rear = null;
+    }
+
+    enqueue(val) {
+        let newNode = new QNode(val);
+        //let newNode = new QNode(TreeNode);
+
+        // base case - empty queue
+        if (!this.front && !this.rear) {
+            this.front = newNode;
+            this.rear = newNode;
+            return;
+        }
+
+        // iterative case - non-empty queue
+        // since we have access to the front and rear, we
+        // actually don't need to iterate
+        this.rear.next = newNode;
+        this.rear = newNode;
+    }
+
+    dequeue() {
+        // base case - empty queue
+        if (!this.front && !this.rear) return;
+
+        // iterative case - non-empty queue
+        // since we have access to the front and rear, we
+        // actually don't need to iterate
+        let oldFront = this.front;
+        this.front = this.front.next;
+
+        oldFront.next = null;
+        return oldFront.val;
+        //return QNode.val = TreeNode
+
+        // now we have a treeNode, but we want the value, so we need another .val
+    }
 }
 
 class BinaryTree {
-  constructor() {
-    this.root = null;
-  }
-
-  preOrder(root){
-    try{
-      if(root != null)
-      {
-        let arr = [];
-        arr.push(root.val);
-
-        if(root.left) arr =[...arr,...this.preOrder(root.left)];
-        if(root.right) arr = [...arr,...this.preOrder(root.right)];
-        console.log('preorder', arr);
-        return arr;
-      }
-    } catch(e){
-      throw err; 
+    constructor() {
+        this.root = null;
     }
-  }
 
-  inOrder(root) {
-    try{
-      if(root != null)
-      {
-        let arr = [];
-        
-        if(root.left) arr = [...arr,...this.inOrder(root.left)];
-        arr.push(root.val);
-        if (root.right) arr = [...arr,...this.inOrder(root.right)];
-        console.log('inorder', arr);
-        return arr;
-      }
-    } catch(e){
-      throw err;
+    breadthFirst(root = this.root) {
+        let printedArr = [];
+
+        // base case - empty tree
+        if (!root) return printedArr;
+
+        // iterative case - tree with children
+
+        let q = new Queue();
+        q.enqueue(root); // Node {A}
+
+        // as long as there is something in the queue,
+        // enqueue children and dequeue
+
+        while (q.front) {
+            // QNode { TreeNode {A} }.val.left
+            // TreeNode {A}.left
+            if (q.front.val.left) q.enqueue(q.front.val.left);
+            // Node {A}.right
+            if (q.front.val.right) q.enqueue(q.front.val.right);
+
+            let removedItem = q.dequeue();
+            printedArr.push(removedItem.val);
+        }
+
+        return printedArr;
     }
-  }
-
-  postOrder(root) {
-    try{
-      if(root != null)
-      {
-        let arr = [];
-
-        if(root.left) arr = [...arr,...this.postOrder(root.left)];
-        if(root.right) arr = [...arr,...this.postOrder(root.right)];
-        arr.push(root.val);
-        console.log('postOrder', arr);
-        return arr;
-      }
-    } catch(e){
-      throw err;
-    }
-  }
 }
 
-class BinarySearchTree extends BinaryTree {
-  constructor() {
-    super();
-    // this.root = null;
-  }
-
-  add(val){
-    // found at https://www.youtube.com/watch?v=5cU1ILGy6dM
-    try{
-      let node = this.root;
-      if (node === null) {
-        this.root = new Node(val);
-        return;
-      } else {
-        const searchTree = function(node) {
-          if (val < node.val) {
-            if (node.left === null) {
-              node.left = new Node(val);
-              return;
-            } else if (node.left !== null) {
-              return searchTree(node.left);
-            }
-          } else if (val > node.val) {
-            if (node.right === null) {
-              node.right = new Node(val);
-              return;
-            } else if (node.right !== null) {
-              return searchTree(node.right);
-            }
-          } else {
-            return null;
-          }
-        };
-        return searchTree(node);
-      }
-    } catch(e){
-      throw err;
-    }
-  }
-
-  contains(root, val){
-    try{
-      //return true or false if val is in the tree
-      if(root == null) return false;
-      if(root.val == val) return true;
-
-      else if(root.val < val) return this.contains(root.right, val);
-      else return this.contains(root.left, val);
-      
-    } catch(e){
-      throw err;
-    }
-  }
-
-  traverseBF(val){
-
-  }
-}
-
-let myTree = new BinarySearchTree();
-myTree.add(3);
-myTree.add(1);
-myTree.add(2);
-myTree.preOrder(myTree.root);
-myTree.inOrder(myTree.root);
-myTree.postOrder(myTree.root);
-// console.log(myTree.contains(myTree.root, 2));
-// console.log(myTree.contains(myTree.root, 4));
-
-
-
-
-
-module.exports = { Node, BinaryTree, BinarySearchTree};
+module.exports = { TreeNode, QNode, BinaryTree };

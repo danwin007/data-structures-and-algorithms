@@ -9,6 +9,7 @@ const fBT = require('./fizz-buzz-tree.js');
 // If the value is not divisible by 3 or 5, simply turn the number into a String
 
 describe('Happy Path', () => {
+  
     it('If the value is divisible by 3, replace the value with “Fizz”', () => {
       let tree = new Node(3);
 
