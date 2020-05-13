@@ -1,0 +1,14 @@
+{
+  "name": "binarytree",
+  "version": "1.0.0",
+  "description": "",
+  "main": "binaryTree.js",
+  "scripts": {
+    "test": "jest --verbose --coverage binaryTree.test.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "jest": "^26.0.1"
+  }
+}
