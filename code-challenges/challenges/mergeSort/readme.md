@@ -27,7 +27,7 @@ Present a complete set of working tests
 - Big 0 Worst case: O(nlogn)
 
 ## Solution
-
+```
   const mergeSort = array => {
     if(array.length < 2) return array;
     const middle = Math.floor(array.length/2);
@@ -50,3 +50,4 @@ Present a complete set of working tests
     while(right.length) result.push(right.shift());
     return result;
   }
+```
