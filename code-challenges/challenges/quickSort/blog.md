@@ -1,6 +1,6 @@
 
 
-![quickSortBlog](https://github.com/danwin007/data-structures-and-algorithms/blob/mergeSort/code-challenges/assets/quickSortBlog.jpg)
+![quickSortBlog](https://github.com/danwin007/data-structures-and-algorithms/blob/quicksort/code-challenges/assets/quickSortBlog.jpg)
 
 
 input array = [8,4,23,42,16,15]
