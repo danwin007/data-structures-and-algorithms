@@ -1,0 +1,14 @@
+{
+  "name": "findmaximumbinarytree",
+  "version": "1.0.0",
+  "description": "",
+  "main": "findMaxBT.js",
+  "scripts": {
+    "test": "jest --verbose --coverage findMaxBT.test.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "jest": "^26.0.1"
+  }
+}
