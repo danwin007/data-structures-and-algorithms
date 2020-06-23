@@ -1,0 +1,17 @@
+{
+  "name": "hashtable",
+  "version": "1.0.0",
+  "description": "hashtable DSA practice for lab 25",
+  "main": "hashtable.js",
+  "scripts": {
+    "start": "node hashtable.js",
+    "lint": "eslint **/*.js",
+    "test": "jest --verbose --coverage",
+    "test-watch": "jest --watchAll --verbose --coverage"
+  },
+  "author": "daniel nguyen",
+  "license": "ISC",
+  "dependencies": {
+    "jest": "^26.0.1"
+  }
+}
