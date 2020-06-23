@@ -23,7 +23,10 @@ Write tests to prove the following functionality:
 Ensure your tests are passing before you submit your solution.
 
 ## Approach & Efficiency
-<!-- What approach did you take? Why? What is the Big O space/time for this approach? -->
+
+[I relied heavily on this article for inspiration] (https://adrianmejia.com/data-structures-time-complexity-for-beginners-arrays-hashmaps-linked-lists-stacks-queues-tutorial/#HashMaps)
+
+At optimal speeds, Big O is O(1). If things don't go so well and there are lots of collisions, then Big O could be O(n).
 
 ## API
 
