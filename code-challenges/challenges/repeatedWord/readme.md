@@ -1,4 +1,4 @@
-# Challenge Summary
+# Repeated Word Code Challenge
 Find the first repeated word in a book.
 
 ## Challenge Description
