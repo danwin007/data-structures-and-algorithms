@@ -19,6 +19,10 @@ class HashTable {
       hashValue += charCode << (i * 8);
     }
 
+    //need to change way it hashes to match reading example
+
+
+
     return hashValue;
   }
 
@@ -68,3 +72,6 @@ console.log(myTable.buckets);
 console.log(myTable.contains('cat'));
 console.log(myTable.get('cat'));
 console.log(myTable.get('bat'));
+
+
+module.exports = { HashTable };
