@@ -1,0 +1,15 @@
+{
+  "name": "graph",
+  "version": "1.0.0",
+  "description": "lab 30 graph implementation",
+  "main": "graph.js",
+  "scripts": {
+    "start": "node graph.js",
+    "test": "jest --verbose --coverage"
+  },
+  "author": "daniel nguyen",
+  "license": "ISC",
+  "dependencies": {
+    "jest": "^26.1.0"
+  }
+}

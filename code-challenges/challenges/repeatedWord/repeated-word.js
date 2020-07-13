@@ -32,7 +32,7 @@ function repeatedWord(str) {
 
         //collision is correct collision
         hashmap[indx] = {key: words[i].toLowerCase(), next: hashmap[indx] };
-      
+
     } 
     else {
       //no collision
