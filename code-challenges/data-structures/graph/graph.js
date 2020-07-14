@@ -49,16 +49,16 @@ class Graph {
   }
 }
 
-const myGraph = new Graph();
-myGraph.addNode('test1');
-myGraph.addNode('test2');
-myGraph.addNode('test3');
-myGraph.addNode('test4');
-myGraph.addEdge('test1', 'test2');
+// const myGraph = new Graph();
+// myGraph.addNode('test1');
+// myGraph.addNode('test2');
+// myGraph.addNode('test3');
+// myGraph.addNode('test4');
+// myGraph.addEdge('test1', 'test2');
 
-myGraph.getNeighbors('test1');
-myGraph.getNodes();
-// myGraph.size();
+// myGraph.getNeighbors('test1');
+// myGraph.getNodes();
+// // myGraph.size();
 
 
 module.exports = Graph;

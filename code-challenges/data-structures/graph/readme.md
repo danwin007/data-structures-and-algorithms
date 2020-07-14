@@ -28,7 +28,8 @@ Include the following methods:
 
 
 ## Approach & Efficiency
-<!-- What approach did you take? Why? What is the Big O space/time for this approach? -->
+I mostly referenced the articles and YouTube videos I found and then tried to reproduce them without breaking something! 
+Big O is O(1) I think?
 
 ## API
 - `addNode()`
