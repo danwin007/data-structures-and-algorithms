@@ -24,7 +24,7 @@ class Graph {
     return this.nodes;
   }
 
-  addEdge(node1, node2, weight = 1) {
+  addEdge(node1, node2, weight) {
     this.edges[node1].push({node: node2, weight: weight});
     this.edges[node2].push({node: node1, weight: weight});
   }
