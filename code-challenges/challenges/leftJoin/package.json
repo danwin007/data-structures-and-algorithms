@@ -1,0 +1,14 @@
+{
+  "name": "leftjoin",
+  "version": "1.0.0",
+  "description": "Write a binary tree method that traverses the tree in a specific way.",
+  "main": "left-join.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "jest": "^26.1.0"
+  }
+}
