@@ -16,6 +16,7 @@ class Graph {
   constructor() {
     this.nodes = [];
     this.edges = [];
+    this.AdjList = new Map(); 
   }
 
   addNode(node) {
