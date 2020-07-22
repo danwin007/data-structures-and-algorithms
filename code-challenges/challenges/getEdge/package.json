@@ -1,0 +1,14 @@
+{
+  "name": "getedge",
+  "version": "1.0.0",
+  "description": "Given a business trip itinerary, and an Alaska Airlines route map, is the trip possible with direct flights? If so, how much will the total trip cost be?",
+  "main": "get-edge.js",
+  "scripts": {
+    "test": "jest --verbose --coverage"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "jest": "^26.1.0"
+  }
+}

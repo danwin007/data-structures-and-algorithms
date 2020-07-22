@@ -2,122 +2,92 @@
 
 class Graph {
   constructor(){
-    this.nodes = [];
+    this.nodeCount = 0;
     this.adjacencyList = {};
   }
 
   addNode(node) {
-    this.nodes.push(node);
-    this.adjacencyList[node] = [];
+    this.nodeCount++;
+    this.adjacencyList[node] = { value: node, edges: {}};
   }
 
-  addEdge(node1, node2, weight) {
-    this.adjacencyList[node1].push({node: node2, weight: weight});
-    this.adjacencyList[node2].push({node: node1, weight: weight});
+  addEdge(node1, node2, weight = null) {
+    if(!this.adjacencyList[node1].edges[node2]) {
+      this.adjacencyList[node1].edges[node2] = weight;
+      this.adjacencyList[node2].edges[node1] = weight;
+    }
   }
 
-  getEdgeDijkstra(startNode, endNode) {
-    let cost = {};
-    let backTrace = {};
-    let q = new Queue();
-  
-    cost[startNode] = 0;
-  
-    this.nodes.forEach(node => {
-      if (node !== startNode) {
-        cost[node] = Infinity
-      }
-    });
-  
-    q.enqueue([startNode, 0]);
-  
-    while (!q.isEmpty()) {
-      let cheapestStep = q.dequeue();
-      let currentNode = cheapestStep[0];
-  
-      this.adjacencyList[currentNode].forEach(neighbor => {
-        let fullCost = cost[currentNode] + neighbor.weight;
-        if (fullCost < cost[neighbor.node]) {
-          cost[neighbor.node] = fullCost;
-          backTrace[neighbor.node] = currentNode;
-          q.enqueue([neighbor.node, fullCost]);
+  getNodes() {
+    return Object.keys(this.adjacencyList);
+  }
+
+  getNeighbors(node) {
+    if (this.adjacencyList[node]) {
+      return Object.entries(this.adjacencyList[node].edges);
+    }
+  }
+
+  size() {
+    return this.nodeCount;
+  }
+
+  getEdge(graph, array) {
+    let cost = 0;
+    
+    if (!graph.adjacencyList[array[0]]) {
+      return 'False, $0';
+    }
+
+    for (let i = 0; i < array.length-1; i++) {
+      let neighbors = graph.getNeighbors(array[i]);
+      let found = false;
+
+      for (let j = 0; j < neighbors.length; j++) {
+        if (neighbors[j][0] === array[i + 1]) {
+          found = true;
+          cost += neighbors[j][1];
         }
-      });
-    }
-  
-    let path = [endNode];
-    let lastStep = endNode;
-  
-    while (lastStep !== startNode) {
-      path.unshift(backTrace[lastStep])
-      lastStep = backTrace[lastStep]
-    }
-  
-    if (path) {
+      }
 
-      return 'True, $' + cost[endNode]
-    } else {
-      return 'False, $0'
+      if (!found) {
+        return 'False, $0';
+      }
     }
+
+    return `True, $${cost}`;
   }
 }
 
-class Queue {
-  constructor() {
-    this.collection = [];
-  }
 
-  enqueue(element) {
-    if (this.isEmpty()) {
-      this.collection.push(element);
-    } else {
-      let added = false;
-      for (let i = 1; i <= this.collection.length; i++) {
-        if (element[1] < this.collection[i-1][1]){
-          this.collection.splice(i-1, 0, element);
-          added = true;
-          break
-        }
-      }
-      if (!added) {
-        this.collection.push(element);
-      }
-    }
-  }
+// let map = new Graph();
+// map.addNode('Pandora');
+// map.addNode('Arendelle');
+// map.addNode('Metroville');
+// map.addNode('Monstropolis');
+// map.addNode('Naboo');
+// map.addNode('Narnia');
 
-  dequeue() {
-    let value = this.collection.shift();
-    return value;
-  }
+// map.addEdge('Pandora', 'Arendelle', 150);
+// map.addEdge('Pandora', 'Metroville', 82);
+// map.addEdge('Metroville', 'Narnia', 37);
+// map.addEdge('Metroville', 'Naboo', 26);
+// map.addEdge('Metroville', 'Arendelle', 99);
+// map.addEdge('Metroville', 'Monstropolis', 105);
+// map.addEdge('Narnia', 'Naboo', 250);
+// map.addEdge('Naboo', 'Monstropolis', 73);
+// map.addEdge('Monstropolis', 'Arendelle', 42);
 
-  isEmpty() {
-    return (this.collection.length === 0)
-  }
-}
-
-let map = new Graph();
-map.addNode('Pandora');
-map.addNode('Arendelle');
-map.addNode('Metroville');
-map.addNode('Monstropolis');
-map.addNode('Naboo');
-map.addNode('Narnia');
-
-map.addEdge('Pandora', 'Arendelle', 150);
-map.addEdge('Pandora', 'Metroville', 82);
-map.addEdge('Metroville', 'Narnia', 37);
-map.addEdge('Metroville', 'Naboo', 26);
-map.addEdge('Metroville', 'Arendelle', 99);
-map.addEdge('Metroville', 'Monstropolis', 105);
-map.addEdge('Narnia', 'Naboo', 250);
-map.addEdge('Naboo', 'Monstropolis', 73);
-map.addEdge('Monstropolis', 'Arendelle', 42);
+// console.log('map', map.getNodes());
+// console.log('neighbors', map.getNeighbors('Metroville'));
+// console.log('size', map.size());
 
 
-console.log(map.getEdgeDijkstra('Metroville', 'Pandora'));
-console.log(map.getEdgeDijkstra('Metroville', 'Pandora'));
 
-console.log(map.getEdgeDijkstra('Naboo', 'Pandora'));
-console.log(map.getEdgeDijkstra('Metroville', 'Pandora'));
+// console.log(map.getEdge(map, ['Metroville', 'Pandora']));
+// console.log(map.getEdge(map, ['Arendelle', 'Monstropolis', 'Naboo']));
 
+// console.log(map.getEdge(map, ['Naboo', 'Pandora']));
+// console.log(map.getEdge(map, ['Narnia', 'Arendelle', 'Pandora']));
 
+module.exports = Graph;

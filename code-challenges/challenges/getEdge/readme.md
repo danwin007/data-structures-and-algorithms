@@ -7,9 +7,41 @@ Write a function based on the specifications above, which takes in a graph, and 
 ## Approach & Efficiency
 I messed up and misunderstood the question. I tried to look for guides to show how to find the cheapest path between two nodes. I didn't realize I needed to just check if edges existed and return the total weight of the edges. Now it's kind of late. I will try to refactor tomorrow :(
 
+Edit: Clayton helped me figure this one out
+
 ## Solution
-<!-- Embedded whiteboard image -->
+```
+getEdge(graph, array) {
+    let cost = 0;
+    
+    if (!graph.adjacencyList[array[0]]) {
+      return 'False, $0';
+    }
+
+    for (let i = 0; i < array.length-1; i++) {
+      let neighbors = graph.getNeighbors(array[i]);
+      let found = false;
+
+      for (let j = 0; j < neighbors.length; j++) {
+        if (neighbors[j][0] === array[i + 1]) {
+          found = true;
+          cost += neighbors[j][1];
+        }
+      }
+
+      if (!found) {
+        return 'False, $0';
+      }
+    }
+
+    return `True, $${cost}`;
+  }
+```
 
 ## Credit
 
 [Walkthrough of Dijkstra's Algorithm](https://medium.com/@adriennetjohnson/a-walkthrough-of-dijkstras-algorithm-in-javascript-e94b74192026)
+
+^^That part turned out to not be as helpful as I thought. I burned way too much time building out that solution. 
+
+Big Credit to Clayton.
