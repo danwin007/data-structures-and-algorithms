@@ -1,5 +1,7 @@
 'use strict';
 
+const Stack = require("../../data-structures/stacksAndQueues/stack");
+
 class Graph {
   constructor(){
     this.nodeCount = 0;
@@ -26,6 +28,10 @@ class Graph {
     if (this.adjacencyList[node]) {
       return Object.entries(this.adjacencyList[node].edges);
     }
+  }
+
+  getAdjacent() {
+    return this.adjacencyList;
   }
 
   size() {
@@ -58,9 +64,52 @@ class Graph {
     return `True, $${cost}`;
   }
 
-  dfs(graph) {
-    
+  *dfs(node) {
+    const visited = new Map();
+    const visitList = new Stack();
+
+    visitList.push(node);
+
+    while (!visitList.isEmpty()) {
+      const curr = visitList.pop();
+
+      if (curr && !visited.has(curr)) {
+        yield curr;
+        visited.set(curr);
+        curr.getAdjacent().forEach(adj => visitList.push(adj));
+      }
+     }
+
   }
+
+  
 }
+
+
+
+let map = new Graph();
+map.addNode('A');
+map.addNode('B');
+map.addNode('C');
+map.addNode('D');
+map.addNode('E');
+map.addNode('F');
+map.addNode('G');
+map.addNode('H');
+
+map.addEdge('A', 'B');
+map.addEdge('A', 'D');
+map.addEdge('D', 'B');
+map.addEdge('C', 'B');
+map.addEdge('C', 'G');
+map.addEdge('D', 'E');
+map.addEdge('D', 'H');
+map.addEdge('D', 'F');
+map.addEdge('F', 'H');
+
+let mapA = map.dfs('A');
+visitedOrder = Array.from(mapA);
+const values = visitedOrder.map(node => node.value);
+console.log(values);
 
 module.exports = Graph;

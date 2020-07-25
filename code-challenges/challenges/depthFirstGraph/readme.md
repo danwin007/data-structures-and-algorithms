@@ -16,3 +16,5 @@ Create a function that accepts an adjacency list as a graph, and conducts a dept
 ## Credit
 
 [DFS Algo by WilliamFiset](https://www.youtube.com/watch?v=7fujbpJ0LB4)
+
+[Graph Data Structures for Beginners](https://morioh.com/p/e9d17b46e8dd)
